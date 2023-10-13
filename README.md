@@ -4,8 +4,8 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <p align="center">
-  <h3 align="center">Shadcn Ui Template</h3>
-  <div align="center"><h3>Project Link: <a href="https://github.com/rsshonjoydas/shadcn-ui-template">GitHub</a> or <a href="https://codesandbox.io/s/github/rsshonjoydas/shadcn-ui-template/tree/main">CodeSandbox</a></h3></div>
+  <h3 align="center">AI SAAS</h3>
+  <div align="center"><h3>Project Link: <a href="https://github.com/rsshonjoydas/ai-saas">GitHub</a> or <a href="https://codesandbox.io/s/github/rsshonjoydas/ai-saas/tree/main">CodeSandbox</a></h3></div>
 </p>
 
 <!-- TABLE OF CONTENTS -->
@@ -31,7 +31,7 @@ Certainly, if you're working on a Node.js project and you have a development scr
 1. **Clone this repository**:
 
    ```sh
-   git clone git@github.com:rsshonjoydas/shadcn-ui-template.git
+   git clone git@github.com:rsshonjoydas/ai-saas.git
    ```
 
 2. **Environment Variables Setup**:
