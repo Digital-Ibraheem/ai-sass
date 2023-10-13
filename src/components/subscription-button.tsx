@@ -3,7 +3,7 @@
 import axios from 'axios';
 import { Zap } from 'lucide-react';
 import { useState } from 'react';
-import { toast } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import { Button } from '@/components/ui/button';
 

@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { VideoIcon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import * as z from 'zod';
 
 import Heading from '@/components/heading';
@@ -44,6 +45,8 @@ const VideoPage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModel.onOpen();
+      } else {
+        toast.error('Something went wrong!');
       }
     } finally {
       router.refresh();

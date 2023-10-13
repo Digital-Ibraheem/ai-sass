@@ -11,8 +11,10 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import * as z from 'zod';
 
 import { BotAvatar } from '@/components/bot-avatar';
@@ -25,7 +27,6 @@ import { Input } from '@/components/ui/input';
 import { UserAvatar } from '@/components/user-avatar';
 import { useProModal } from '@/hooks/use-pro-modal';
 import { cn } from '@/lib/utils';
-import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 import { formSchema } from './constants';
 
@@ -55,6 +56,8 @@ const CodePage = () => {
     } catch (error: any) {
       if (error?.response?.status === 403) {
         proModel.onOpen();
+      } else {
+        toast.error('Something went wrong!');
       }
     } finally {
       router.refresh();
