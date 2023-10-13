@@ -2,6 +2,8 @@ import { auth } from '@clerk/nextjs';
 import { NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
+import { checkApiLimit, incrementApiLimit } from '@/lib/api-limit';
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -32,13 +34,21 @@ export async function POST(req: Request) {
       return new NextResponse('Resolution is required', { status: 400 });
     }
 
-    const chatCompletion = await openai.images.generate({
+    const freeTrial = await checkApiLimit();
+
+    if (!freeTrial) {
+      return new NextResponse('Free trial expired', { status: 403 });
+    }
+
+    const response = await openai.images.generate({
       prompt,
       n: parseInt(amount, 10),
       size: resolution,
     });
 
-    return NextResponse.json(chatCompletion.data);
+    await incrementApiLimit();
+
+    return NextResponse.json(response.data);
   } catch (error) {
     console.log('[IMAGE_ERROR]', error);
     return new NextResponse('Internal Server Error', { status: 500 });
