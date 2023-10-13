@@ -2,6 +2,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { CrispProvider } from '@/providers/crisp-provider';
 import { ModalProvider } from '@/providers/modal-provider';
 import { ToasterProvider } from '@/providers/toaster-provider';
 
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <ClerkProvider>
       <html lang='en'>
+        <CrispProvider />
         <body className={inter.className}>
           <ToasterProvider />
           <ModalProvider />
