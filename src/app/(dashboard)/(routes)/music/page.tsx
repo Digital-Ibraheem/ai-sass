@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Empty } from '@/components/ui/empty';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { useProModal } from '@/hooks/use-pro-modal';
 import axios from 'axios';
 import { useState } from 'react';
 
@@ -19,8 +20,8 @@ import { formSchema } from './constants';
 
 const MusicPage = () => {
   const [music, setMusic] = useState<string>();
-
   const router = useRouter();
+  const proModel = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,7 +42,9 @@ const MusicPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error.message);
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
     } finally {
       router.refresh();
     }

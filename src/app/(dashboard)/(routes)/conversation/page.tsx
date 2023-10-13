@@ -1,8 +1,10 @@
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
+import axios from 'axios';
 import { MessageSquare } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -14,14 +16,15 @@ import { Empty } from '@/components/ui/empty';
 import { Form, FormControl, FormField, FormItem } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { UserAvatar } from '@/components/user-avatar';
+import { useProModal } from '@/hooks/use-pro-modal';
 import { cn } from '@/lib/utils';
-import axios from 'axios';
-import { useState } from 'react';
+
 import { formSchema } from './constants';
 
 const ConversationPage = () => {
   const [messages, setMessages] = useState<any[]>([]);
   const router = useRouter();
+  const proModel = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,7 +45,9 @@ const ConversationPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error.message);
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
     } finally {
       router.refresh();
     }

@@ -23,12 +23,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import { useProModal } from '@/hooks/use-pro-modal';
 
 import { amountOptions, formSchema, resolutionOptions } from './constants';
 
 const ConversationPage = () => {
   const [images, setImages] = useState<string[]>([]);
   const router = useRouter();
+  const proModel = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -53,7 +55,9 @@ const ConversationPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error.message);
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
     } finally {
       router.refresh();
     }

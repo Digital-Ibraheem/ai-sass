@@ -15,12 +15,13 @@ import { Input } from '@/components/ui/input';
 import axios from 'axios';
 import { useState } from 'react';
 
+import { useProModal } from '@/hooks/use-pro-modal';
 import { formSchema } from './constants';
 
 const VideoPage = () => {
   const [video, setVideo] = useState<string>();
-
   const router = useRouter();
+  const proModel = useProModal();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,7 +42,9 @@ const VideoPage = () => {
 
       form.reset();
     } catch (error: any) {
-      console.log(error.message);
+      if (error?.response?.status === 403) {
+        proModel.onOpen();
+      }
     } finally {
       router.refresh();
     }
