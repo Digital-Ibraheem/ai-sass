@@ -4562,6 +4562,11 @@ remark-rehype@^11.0.0:
     unified "^11.0.0"
     vfile "^6.0.0"
 
+replicate@^0.20.1:
+  version "0.20.1"
+  resolved "https://registry.yarnpkg.com/replicate/-/replicate-0.20.1.tgz#3f9032eaa6a8469dac9abab914967fc2e6cb1549"
+  integrity sha512-QVyI1rowGsSfNuDrRmumYPdCHa/fN/RkI3NHpcK0i5hSSiWK69URAyheAC/0MIAiS3oUs4kD56PB9zEI4oHENw==
+
 require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
