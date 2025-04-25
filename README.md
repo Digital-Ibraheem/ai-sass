@@ -1,11 +1,8 @@
-[![Facebook-Page][facebook-shield]][facebook-url]
-[![Twitter][twitter-shield]][twitter-url]
-[![Instagram][instagram-shield]][instagram-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+
 
 <p align="center">
   <h1 align="center">AI Platform</h1>
-  <div align="center"><h3>Project Link: <a href="https://github.com/rsshonjoydas/ai-sass">GitHub</a></h3></div>
+  <div align="center"><h3>Project Link: <a href="https://github.com/digital-ibraheem/ai-sass">GitHub</a></h3></div>
 </p>
 
 ### Build a SaaS AI sass with Next.js 13, React, Tailwind, Prisma, Stripe.
@@ -59,7 +56,7 @@ Certainly, if you're working on a Node.js project and you have a development scr
 1. **Clone this repository**:
 
    ```sh
-   git clone git@github.com:rsshonjoydas/ai-sass.git
+   git clone git@github.com:digital-ibraheem/ai-sass.git
    ```
 
 2. **Environment Variables Setup**:
@@ -178,20 +175,4 @@ Certainly, if you're working on a Node.js project and you have a development scr
       ```
     - Overwrite existing ui components `optional`
       ```bash
-      npx shadcn-ui@latest add button --overwrite
-      ```
-
-## Contact
-
-Shonjoy Das - [rsshonjoy@gmail.com](mailto:rsshonjoy@gmail.com)
-
-<!-- MARKDOWN LINKS & IMAGES -->
-
-[facebook-shield]: https://img.shields.io/badge/-Facebook-black.svg?style=flat-square&logo=facebook&color=555&logoColor
-[facebook-url]: https://facebook.com/rsshonjoydas
-[twitter-shield]: https://img.shields.io/badge/-Facebook-black.svg?style=flat-square&logo=twitter&color=555&logoColor
-[twitter-url]: https://twitter.com/rsshonjoydas
-[instagram-shield]: https://img.shields.io/badge/-Instagram-black.svg?style=flat-square&logo=instagram&color=555&logoColor
-[instagram-url]: https://instagram.com/rsshonjoydas
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB
-[linkedin-url]: https://linkedin.com/in/rsshonjoydas
+      npx shadcn-ui@latest add button 
